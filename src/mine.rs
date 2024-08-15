@@ -161,7 +161,7 @@ impl Miner {
                             }
                     }
                     else {
-                        interval = 5000;
+                        interval = 1;
                         println!(
                             "难度小于24, 间隔已重置为{}, 搏一搏，万一呢？",interval
                         );
