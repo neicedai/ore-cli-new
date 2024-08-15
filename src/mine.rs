@@ -93,7 +93,7 @@ impl Miner {
                     println!("  当前最好Hash: {} (难度 {})", bs58::encode(hashshow.h).into_string(), highest_difficulty);
             }
 
-            if difficulty >= 21 {
+            if difficulty >= 24 {
                 highest_difficulty = difficulty;
                 if let Some(valid_solution) = best_solution.clone(){
                 // Build instruction set
@@ -111,7 +111,7 @@ impl Miner {
                     self.find_bus().await,
                     valid_solution,
                 ));
-                println!("  难度大于等21，已提交解决方案。方案的Hash: {} (难度 {})", bs58::encode((valid_solution.to_hash()).h).into_string(), highest_difficulty);
+                println!("  难度大于等24，已提交解决方案。方案的Hash: {} (难度 {})", bs58::encode((valid_solution.to_hash()).h).into_string(), highest_difficulty);
                 // Submit transaction
                 let result = self.send_and_confirm(&ixs, ComputeBudget::Fixed(compute_budget), false, Some(highest_difficulty))
                     .await
@@ -163,7 +163,7 @@ impl Miner {
                     else {
                         interval = 5000;
                         println!(
-                            "难度小于21, 间隔已重置为{}, 搏一搏，万一呢？",interval
+                            "难度小于24, 间隔已重置为{}, 搏一搏，万一呢？",interval
                         );
                     }
                         
