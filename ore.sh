@@ -43,8 +43,8 @@ update_script() {
 # 安装基础环境
 function basic_env(){
 	# 更新软件包
-	sudo apt update && sudo apt upgrade -y
-	sudo apt install -y curl build-essential jq git libssl-dev pkg-config screen pkg-config libmysqlclient-dev
+	apt update && apt upgrade -y &&
+	apt install -y curl build-essential jq git libssl-dev pkg-config screen pkg-config libmysqlclient-dev openssl
 	
 	# 安装 Rust 和 Cargo
 	echo "正在安装 Rust 和 Cargo..."
